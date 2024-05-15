@@ -1,18 +1,11 @@
-import { test, expect } from '@playwright/test';
-
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+import { expect } from '@playwright/test';
+import { test } from '../pom'
+import { delay } from '../utils/helpers';
+test('has title', async ({ mainPage, logInDialog }) => {
+  await mainPage.openMainPage();
+  await mainPage.openRegWindow();
+  await logInDialog.loginAs(process.env.LOGIN as string, process.env.PASSWORD as string);
+  await mainPage.clickNewOrderBtn();
+  await delay(120000);
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
