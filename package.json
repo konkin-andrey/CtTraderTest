@@ -6,7 +6,8 @@
   "scripts": {
     "start_chrome": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on --project Chromium",
     "start_mozila": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on  --project Mozila",
-    "start_all": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on"
+    "start_all": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on",
+    "start_all_headed": "playwright test tests/01_CreateOrder.spec --workers 1 --headed --trace on"
   },
   "keywords": [],
   "author": "",

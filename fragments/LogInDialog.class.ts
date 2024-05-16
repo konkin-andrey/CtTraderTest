@@ -11,12 +11,16 @@ export class LogInDialog {
 
   constructor(page: Page) {
     this.page = page;
-    this.SWICH_SIGNIN_BTN = this.page.locator(('[data-test-id=signin-tab]'));
+    //this.SWICH_SIGNIN_BTN = this.page.locator(('[data-test-id=signin-tab]'));
+    this.SWICH_SIGNIN_BTN = this.page.locator(('[data-smoke-id=signup-tab]')).locator('..').locator('div').first();
     this.SWICH_REG_BTN = this.page.locator(('[data-test-id=signup-tab]'));
-    this.LOGIN_FIELD = this.page.locator('[data-test-id=email]').locator('input');
-    this.PASSWORD_FIELD = this.page.locator('[data-test-id=password]').locator('input');
-    this.LOGIN_BTN = this.page.locator('[data-test-id=submit]').locator('button');
+    //this.LOGIN_FIELD = this.page.locator('[data-test-id=email]').locator('input');
+    this.LOGIN_FIELD = this.page.locator('[placeholder="Enter your email or cTrader ID"]');
     
+    //this.PASSWORD_FIELD = this.page.locator('[data-test-id=password]').locator('input');
+    this.PASSWORD_FIELD = this.page.locator('[placeholder="Enter your password"]');
+    //this.LOGIN_BTN = this.page.locator('[data-test-id=submit]').locator('button');
+    this.LOGIN_BTN = this.page.locator('button').filter({hasText:'LOG IN'}).last();
   }
 
   async setLogin(login: string) {
@@ -38,7 +42,7 @@ export class LogInDialog {
   }
 
   async switchOnSignIn() {
-    await test.step(`Click on login button`, async () => {
+    await test.step(`Click on login switcher`, async () => {
       await this.SWICH_SIGNIN_BTN.click();
     });
   }

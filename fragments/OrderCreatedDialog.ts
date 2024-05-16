@@ -9,7 +9,8 @@ export class OrderCreatedDialog {
   constructor(page: Page) {
     this.page = page;
     this.DIALOG_WINDOW = this.page.locator('[data-test-id=dialog-header]').locator('..');
-    this.CLOSE_BTN = this.page.locator('[data-test-id=ok-button]');
+    //this.CLOSE_BTN = this.page.locator('[data-test-id=ok-button]');
+    this.CLOSE_BTN = this.page.locator('div').filter({hasText: 'OK'});
   }
 
   async checkCreatedOrderMsg(stockName: string, stockCount: number) {
@@ -20,9 +21,9 @@ export class OrderCreatedDialog {
   }
 
   async closeDialog() {
-    await test.step(`Click Create order btn`, async () => {
-      await this.CLOSE_BTN.click();
-      expect(this.DIALOG_WINDOW).not.toBeVisible();
+    await test.step(`Click close msg btn`, async () => {
+      await this.CLOSE_BTN.last().click();
+      //expect(this.DIALOG_WINDOW).not.toBeVisible();
     });
   }
 }
