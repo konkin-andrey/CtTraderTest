@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start_chrome": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on --project Chromium",
+    "start_mozila": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on  --project Mozila",
+    "start_all": "playwright test tests/01_CreateOrder.spec --workers 1 --trace on"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

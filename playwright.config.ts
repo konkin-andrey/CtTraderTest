@@ -14,7 +14,7 @@ export default defineConfig({
   use: {
     actionTimeout: 100000,
     navigationTimeout: 100000,
-    headless: false,
+    headless: true,
     // retries: 1,
     trace: 'on-first-retry',
   },
@@ -22,25 +22,17 @@ export default defineConfig({
     {
       name: 'Chromium',
       use: {
-          ...devices['Desktop Chrome'],
-          viewport: { width: 1920, height: 1080 },
-          navigationTimeout: 100000,
-          settings: {
-            mail: process.env.MAILOSAUR_SERVER_1 as string,
-            //mozilaMail: process.env.MAILOSAUR_SERVER_2 as string
-          }
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        navigationTimeout: 100000,
       } as any,
     },
     {
       name: 'Mozila',
       use: {
-          ...devices['Desktop Firefox'],
-          viewport: { width: 1920, height: 1080 },
-          navigationTimeout: 100000,
-          settings: {
-            //chromeMail: process.env.MAILOSAUR_SERVER_1 as string,
-            mail: process.env.MAILOSAUR_SERVER_2 as string
-          }
+        ...devices['Desktop Firefox'],
+        viewport: { width: 1920, height: 1080 },
+        navigationTimeout: 100000,
       },
     }
   ],

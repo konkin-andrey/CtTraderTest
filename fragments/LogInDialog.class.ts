@@ -43,9 +43,6 @@ export class LogInDialog {
     });
   }
 
-
-
-
   async loginAs(login: string, password: string) {
     await test.step(`login as: ${login}, password: ${password}`, async () => {
       await this.switchOnSignIn();
