@@ -14,7 +14,7 @@ export class OrderCreatedDialog {
   }
 
   async checkCreatedOrderMsg(stockName: string, stockCount: number) {
-    await test.step(`Click Create order btn`, async () => {
+    await test.step(`Check that msg contains text`, async () => {
       await expect(this.DIALOG_WINDOW).toHaveText(new RegExp(`.*${stockName}.*`, 'g'), {useInnerText: true});
       expect(await this.DIALOG_WINDOW.innerText()).toContain(`${stockCount} Lots of ${stockName}`);
     });

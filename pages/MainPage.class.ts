@@ -83,7 +83,8 @@ export class MainPage extends BasePage {
       }
 
       await delay(500);
-      return Number(await this.POSITIONS_COUNTER.innerText());
+      //return Number(await this.POSITIONS_COUNTER.innerText());
+      return (await this.TABLE_ROWS.allInnerTexts()).length;
     });
   }
 }
