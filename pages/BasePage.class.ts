@@ -1,6 +1,5 @@
 import { Browser, Page, chromium, test } from '@playwright/test';
 
-
 export class BasePage {
   page: Page;
   constructor(page: Page) {

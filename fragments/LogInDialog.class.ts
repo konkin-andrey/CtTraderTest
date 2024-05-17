@@ -1,6 +1,7 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { test } from '../pom';
 
+/**Класс для работы с окном регистрации/входа на сайт */
 export class LogInDialog {
   LOGIN_FIELD: Locator;
   PASSWORD_FIELD: Locator;
@@ -26,12 +27,14 @@ export class LogInDialog {
   async setLogin(login: string) {
     await test.step(`Set login: ${login}`, async () => {
     await this.LOGIN_FIELD.fill(login);
+    expect(await this.LOGIN_FIELD.inputValue()).toBe(login);
     });
   }
 
   async setPassword(password: string) {
     await test.step(`Set password: ${password}`, async () => {
       await this.PASSWORD_FIELD.fill(password);
+      expect(await this.PASSWORD_FIELD.inputValue()).toBe(password);
     });
   }
 

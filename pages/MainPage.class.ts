@@ -2,6 +2,7 @@ import { Page, test, Locator, expect } from '@playwright/test';
 import { BasePage } from './BasePage.class';
 import { delay } from '../utils/helpers';
 
+/**Класс для работы с главной страницей приложения */
 export class MainPage extends BasePage {
   OPEN_REG_BTN: Locator;
   LOGIN_FIELD: Locator;
@@ -29,8 +30,7 @@ export class MainPage extends BasePage {
     this.CLOSE_POS_BTN = this.page.locator('[id="ic_access_cross"]').locator('..');
   }
 
-
-
+  /**Метод для получения массива открытых позиций */
   async getCurrentOrdersList(): Promise<string[]> {
     return await test.step(`Get array of all positions`, async () => {
       for await (let loc of await this.TABLE_ROWS.all()) {
@@ -74,6 +74,7 @@ export class MainPage extends BasePage {
       }
     });
   }
+
 
   async getCurrentPositionsCount(): Promise<number> {
     return await test.step(`Get current positions count`, async () => {

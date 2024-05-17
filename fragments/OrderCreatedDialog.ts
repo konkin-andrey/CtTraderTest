@@ -1,6 +1,7 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { test } from '../pom';
 
+/**Класс для работы с окном, всплывающим после создания ордера*/
 export class OrderCreatedDialog {
   page: Page;
   DIALOG_WINDOW: Locator;

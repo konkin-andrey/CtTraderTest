@@ -1,5 +1,6 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { test } from '../pom';
+import { OrderType } from '../types';
 
 export class CreateOrderDialog {
   LOGIN_FIELD: Locator;
@@ -53,8 +54,14 @@ export class CreateOrderDialog {
     });
   }
 
-  async createOrder(stockName: string, stockCount: number) {
+  async createOrder(orderType: OrderType, stockName: string, stockCount: number) {
     await test.step(`Create order for: ${stockName}, count: ${stockCount}`, async () => {
+      // switch(orderType) {
+      //   case 'Buy':
+      //     break;
+      //   case 'Sell':
+      //     break;
+      // }
       //await this.openSelectList();
       //await this.setStockName(stockName);
       //await this.setStockCount(stockCount);
